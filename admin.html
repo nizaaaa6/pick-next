@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pick Next Admin Panel</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <!-- SIDEBAR -->
+      <div class="w-64 bg-pink-600 text-white p-6">
+        <h1 class="text-2xl font-bold mb-6">Pick Next Admin</h1>
+        <ul class="space-y-3">
+          <li>Dashboard</li>
+          <li>Products</li>
+          <li>Orders</li>
+          <li>Customers</li>
+          <li>login</li>
+        </ul>
+      </div>
+
+      <div class="flex-1 p-8">
+        <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+        <!-- STATS -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8 text-center">
+          <div class="bg-white p-4 rounded shadow text-xl">
+            <b>Products</b><br />
+            <span id="totalProducts"><b>0</b></span>
+          </div>
+
+          <div class="bg-white p-4 rounded shadow text-xl">
+            <b>Orders</b><br />
+            <span id="totalorders"><b>0</b></span>
+          </div>
+
+          <div class="bg-white p-4 rounded shadow text-xl">
+            <b>Customers</b><br />
+            <span id="totalcustomer"><b>0</b></span>
+          </div>
+        </div>
+
+        <!-- ADD PRODUCT -->
+        <div class="bg-white p-6 rounded shadow mb-8">
+          <h2 class="text-xl font-bold mb-4">Add Product</h2>
+
+          <input
+            id="productname"
+            placeholder="Product Name"
+            class="border p-2 w-full mb-2"
+          />
+
+          <input
+            id="productprice"
+            type="number"
+            placeholder="Price"
+            class="border p-2 w-full mb-2"
+          />
+
+          <select id="productcategory" class="border p-2 w-full mb-2">
+            <option value="">Select Category</option>
+            <option value="Ring">Ring</option>
+            <option value="Necklace">Necklace</option>
+            <option value="Keychain">Keychain</option>
+          </select>
+
+          <input id="productimage" type="file" class="border p-2 w-full mb-3" />
+
+          <input
+            id="videoTitle"
+            type="text"
+            placeholder="Video Title"
+            class="border p-2 w-full mb-3 rounded"
+          />
+
+          <input
+            id="videoFile"
+            type="file"
+            accept="video/*"
+            class="border p-2 w-full mb-3"
+          />
+
+          <button
+            onclick="addProduct()"
+            class="bg-pink-600 text-white px-4 py-2 rounded"
+          >
+            Add Product
+          </button>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-xl font-bold mb-4">Products</h2>
+
+          <table class="w-full text-center">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="p-2">Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>video</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="productTable">
+              <tr class="border-b">
+                <td>Ring</td>
+                <td>ring</td>
+                <td>Ring</td>
+                <td>200</td>
+                <td>nil</td>
+                <td>
+                  <button class="bg-blue-500 text-white px-3 py- rounded">
+                    Edit
+                  </button>
+                  <button class="bg-red-500 text-white px-3 py- rounded">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
